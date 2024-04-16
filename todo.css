@@ -76,12 +76,31 @@ ul li{
   list-style: none;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background: #141816;
+  /* justify-content: space-between; */
+  /* background: #141816; */
   margin-top: 20px;
   padding: 10px 20px;
   border-radius: 25px;
   font-size: 18px;
   font-weight: 500;
   color: #fff;
+}
+
+ul li::before{
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+ul li.checked{
+  text-decoration: line-through;
+  color: #fff;
+}
+
+ul li.checked::before{
+  background: #fff;
 }
