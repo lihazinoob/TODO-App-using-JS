@@ -17,6 +17,9 @@
       const list = document.createElement("li");
       list.innerHTML = inputbox.value;
       listcontainer.appendChild(list);
+      let span = document.createElement("span");
+      span.innerHTML = "X";
+      list.appendChild(span);
       inputbox.value = ""; 
 
       
