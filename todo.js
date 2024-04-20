@@ -1,5 +1,6 @@
 // document.addEventListener("DOMContentLoaded", (event) => {
   // Your JavaScript code here
+  
   const inputbox = document.getElementById("todo");
 
   const listcontainer = document.getElementById("listcontainer");
@@ -18,12 +19,41 @@
       list.innerHTML = inputbox.value;
       listcontainer.appendChild(list);
       let span = document.createElement("span");
-      span.innerHTML = "X";
+      span.innerHTML = "\u00D7";
       list.appendChild(span);
       inputbox.value = ""; 
+      savedata();
 
       
 
     }
   }
 // });
+
+listcontainer.addEventListener("click", function(event) {
+  if (event.target.tagName === "LI") {
+    
+    event.target.classList.toggle("checked");
+    savedata();
+
+  }
+  else if(event.target.tagName === "SPAN") {
+    event.target.parentElement.remove();
+    savedata();
+  }
+});
+
+function savedata()
+{
+  localStorage.setItem("data", listcontainer.innerHTML);
+
+}
+
+function getdata()
+{
+  if(localStorage.getItem("data"))
+  {
+    listcontainer.innerHTML = localStorage.getItem("data");
+  }
+}
+getdata();
